@@ -34,7 +34,7 @@ function App() {
 
     <ScaleSelector darkTheme={darkTheme} />
 
-      <div className="search-bar">
+      <div className={`search-bar ${darkTheme ? 'dark' : null}`}>
         <h1>Weather search</h1>
         
         <label htmlFor="search-input">
