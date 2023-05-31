@@ -1,8 +1,8 @@
 
 
-export const Current = ( props ) => {
+export const Current = ( {data} ) => {
     return (
-        <div className="current-display">CURRENT</div>
+        <div className="current-display">CURRENT {data}</div>
 
     )
 }

@@ -1,7 +1,7 @@
 
 
-export const Forecast = ( props ) => {
+export const Forecast = ( {data} ) => {
     return (
-        <div className="forecast-display">FORECAST</div>
+        <div className="forecast-display">FORECAST {data}</div>
     )
 }

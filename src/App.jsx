@@ -7,7 +7,7 @@ import { startKeyPressListener } from './utils/keyPress'
 import { API } from './API.js';
 
 function App() {
-  const [data, setData] = useState('');
+  const [data, setData] = useState('data');
   const [darkTheme, setDarkTheme] = useState(true);
   const [searchInput, setSearchInput] = useState('Singapore');
   const [suggestedList, setSuggestedList] = useState([]);
@@ -67,7 +67,7 @@ const test = () => api.getData('London');
         <label htmlFor="search-input" id='search'>
           <input type="search" placeholder='Insert a city/ZIP/country' 
           value={searchInput} maxLength='24' onChange={(e) => handleInputChange(e)} name='search-input'/>
-          <button name='search-input' style={ {backgroundImage: {`url(./public/search-${darkTheme ? 'dark' : 'light'}.svg)`} }className='search-btn' onClick={() => search()}></button>
+          <button name='search-input' style={ {backgroundImage: `url("./public/search-${darkTheme ? 'light' : 'dark'}.svg")`} } className='search-btn' onClick={() => search()}></button>
         </label>
         </div>
 
