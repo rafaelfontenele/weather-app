@@ -496,6 +496,7 @@ function App() {
       }
   }
 
+  const [isCelsius, setIsCelsius] = useState(true);
   const [data, setData] = useState(exampleData);
   const [darkTheme, setDarkTheme] = useState(true);
   const [searchInput, setSearchInput] = useState('Singapore');
@@ -549,7 +550,7 @@ const test = () => api.getData('London');
 
     <div className="header" style={ {color: darkTheme ? 'white' : 'black', backgroundColor: darkTheme ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)'} } >
 
-    <ScaleSelector darkTheme={darkTheme} />
+    <ScaleSelector darkTheme={darkTheme} isCelsius={isCelsius} setIsCelsius={setIsCelsius}/>
 
 
       <div className={`search-bar ${darkTheme ? 'dark' : null}`}>
@@ -567,7 +568,7 @@ const test = () => api.getData('London');
     </div>
 
 
-    <Display data={ data } darkTheme={darkTheme}/>
+    <Display data={ data } darkTheme={darkTheme} isCelsius={isCelsius} />
 
     <button className="test" onClick={() => test()}>TEST()</button>
 

@@ -3,7 +3,7 @@ import { Current } from './Current';
 import { Forecast } from './Forecast';
 
 
-export const Display = ( {data, darkTheme} ) => {
+export const Display = ( {data, darkTheme, isCelsius} ) => {
     const darkClass = darkTheme ? 'dark' : null;
     return (
 <>
@@ -18,7 +18,7 @@ export const Display = ( {data, darkTheme} ) => {
         {data && ( 
                 <div className="display">
                 <Current currentData={data.current ? data.current : null} darkClass={darkClass} />
-                <Forecast forecastData={data.forecast ? data.forecast : null} darkClass={darkClass} />
+                <Forecast forecastData={data.forecast ? data.forecast : null} darkClass={darkClass} isCelsius={isCelsius} />
                 </div>
         )}  
 

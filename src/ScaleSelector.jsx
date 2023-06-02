@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-export const ScaleSelector = ( { darkTheme } ) => {
-    const [isCelsius, setIsCelsius] = useState(true);
+export const ScaleSelector = ( { darkTheme, isCelsius, setIsCelsius } ) => {
     const currIcon = `url("../public/${isCelsius ? 'c' : 'f'}-${darkTheme ? 'light' : 'dark'}.svg")`
 
     return ( 
