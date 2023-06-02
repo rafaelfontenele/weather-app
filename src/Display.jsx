@@ -16,10 +16,10 @@ export const Display = ( {data, darkTheme} ) => {
         )}
 
         {data && ( 
-                <>
-                <Current data={data} />
-                <Forecast data={data} />
-                </>
+                <div className="display">
+                <Current currentData={data.current ? data.current : null} darkClass={darkClass} />
+                <Forecast forecastData={data.forecast ? data.forecast : null} darkClass={darkClass} />
+                </div>
         )}  
 
 </>

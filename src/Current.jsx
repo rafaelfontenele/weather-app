@@ -1,8 +1,8 @@
 
 
-export const Current = ( {data} ) => {
+export const Current = ( {currentData, darkClass} ) => {
     return (
-        <div className="current-display">CURRENT {data}</div>
+        <div className={`current-display ${darkClass}`}>CURRENT </div>
 
     )
 }
