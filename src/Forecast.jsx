@@ -7,7 +7,7 @@ export const Forecast = ( {forecastData, darkClass, isCelsius } ) => {
         <div className={`forecast-display ${darkClass}`}> 
 
 
-        <div className="h1">FORECAST</div>
+        <div className="title">FORECAST</div>
        
         {Object.keys(forecastData.forecastday).map( k => {
             const dailyData = forecastData.forecastday[k];

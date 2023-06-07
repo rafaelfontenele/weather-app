@@ -189,6 +189,37 @@
   background-color: rgba(255,255,255,0.6);
   border: 2px solid black;
   border-radius: 1rem;
+  display: grid;
+  grid-template-rows: 30% 50% 20%;
+  grid-template-columns: 1fr 1fr;
+  padding: 1% 2%;
+
+}
+.current-display .top {
+  grid-column: span 2;
+}
+.current-display .current-icon {
+  text-align: center;
+  align-self: flex-start;
+  margin-top: 5%;
+}
+.current-icon img {
+  transform: scale(2);
+}
+.info-display {
+  display: grid;
+  height: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(autofill);
+  text-align: start;
+  grid-row: 2 span 2;
+}
+.info-display * {
+  height: fit-content;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+.current-display.dark .info-display * {
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 .forecast-display {
@@ -201,7 +232,16 @@
   height: auto;
   margin: 1% 2%;
   display: grid;  
-  grid-template-rows: 10% repeat(7, 25%);
+  grid-template-rows: 8% repeat(autofill);
+}
+
+.forecast-display .title {
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  text-align: center;
+  align-self: center;
+}
+.forecast-display.dark .title {
+  border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
 .current-display.dark,
@@ -213,12 +253,50 @@
   border: 1px solid white;
 }
 
-.forecast-display .item {
+ .forecast-item {
   width: 90%;
-  height: auto;
   margin: 0% auto;
-  border: 1px solid orange;
+  display: grid;
+  grid-template-rows: 2fr 4fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.forecast-display.dark .forecast-item {
+  border-bottom: 1px solid white;
+}
+
+
+.forecast-item .date-day {
+  grid-row: 1;
+  grid-column: span 2;
+}
+
+.icon-display {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  grid-row: 2;
+}
+
+.forecast-item .temp {
   display: flex;
+  grid-row: 2;
+  grid-column: 1;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  gap: 5%;
+  height: 80%;
+}
+
+.forecast-item .temp *:not(last-child) {
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+.forecast-display.dark .forecast-item .temp *:not(last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .no-data-display,

@@ -17,7 +17,7 @@ export const Display = ( {data, darkTheme, isCelsius} ) => {
 
         {data && ( 
                 <div className="display">
-                <Current currentData={data.current ? data.current : null} darkClass={darkClass} />
+                <Current current={data.current} location={data.location} darkClass={darkClass} scale={isCelsius ? 'c' : 'f'} />
                 <Forecast forecastData={data.forecast ? data.forecast : null} darkClass={darkClass} isCelsius={isCelsius} />
                 </div>
         )}  
