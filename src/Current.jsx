@@ -9,7 +9,7 @@ export const Current = ( {current, location, darkClass, scale} ) => {
         condition: current.condition.text,
         temp: current[`temp_${scale}`],
         feelsLike: current[`feelslike_${scale}`],
-        iconUrl: `./public/${current.condition.icon.split('/').splice(-2).join('/')}`,
+        iconUrl: `${current.condition.icon.split('/').splice(-2).join('/')}`,
         humidity: current.humidity,
         cloud: current.cloud,
         windSpeed: current[`wind_${scale == 'c' ? 'k' : 'm'}ph`],
@@ -26,8 +26,7 @@ export const Current = ( {current, location, darkClass, scale} ) => {
         <div className={`current-display ${darkClass}`}>
 
         <div className="top">
-            <div className="name">{info.name},</div>
-            <div className="country">{info.country}</div>
+            <div className="name">{info.name.split(' ').slice(0,2).join(' ')}, <div className="country">{info.country}</div> </div>
         </div>
 
 
@@ -50,6 +49,9 @@ export const Current = ( {current, location, darkClass, scale} ) => {
 
 
         </div>
+
+
+
 
         </div>
 

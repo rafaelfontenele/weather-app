@@ -9,35 +9,31 @@ export class API  {
 
     SEARCH_URL = (key, input) => `http://api.weatherapi.com/v1/search.json?key=${key}&q=${input}`;
     CURRENT_URL = (key, input) => `http://api.weatherapi.com/v1/current.json?key=${key}&q=${input}&aqi=no`
-    FORECAST_URL = (key, input) => `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${input}&days=1&aqi=no&alerts=no`
+    FORECAST_URL = (key, input) => `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${input}&days=7&aqi=no&alerts=no`
   
-    getCurrent = async (input) => {
-        const response = await fetch(this.CURRENT_URL(this.key, input));
-        const json = await response.json();
+   
+    getData (searchInput, setData) {
 
-        return json.body;
-    }
-
-    getData (searchInput) {
-
-    const url = this.CURRENT_URL(this.key, searchInput);
+    const url = this.FORECAST_URL(this.key, searchInput);
 
 
-    const response = fetch(url)
+    return fetch(url)
     .then( res => {
-
-        if (!res.ok) {
-            console.log('not ok. Err 1');
-            return -1;
-            
+        if (res.status !== 200) {
+            setData( prev => -1)            
         }
         
         return res.json()        
 
     })
     .then( data => {
-        console.log('success');
-        return (data);
+
+        const objKeys = Object.keys(data);
+
+        if (!objKeys.includes('location') || !objKeys.includes('current') || !objKeys.includes('forecast')) return;
+
+        setData( prev => data);
+
     }
     ).catch( err => {
         console.log(err);
@@ -46,23 +42,45 @@ export class API  {
         );
     
     
-    return response;
 
     }
 
 
-    getSearchList(input) {
+    getSuggested (searchInput, setSuggestedList) {
 
-        const url = this.SEARCH_URL(this.key, input);
+        const url = this.SEARCH_URL(this.key, searchInput);
+    
+    
+        return fetch(url)
+        .then( res => {
+            if (res.status !== 200) {
+                return          
+            }
+            
+            return res.json()        
+    
+        })
+        .then( data => {
+            const suggestedNames = data.map( item => {
+                return item.name;
+            })
+            setSuggestedList(suggestedNames)
+    
+        }
 
-        fetch(url)
-            .then( response => response.json())
-                .then( data => {
-                    if (data.ok) console.log(`Success: ${data}`)
-                    else Promise.reject()
-                })
-                .catch( err => console.log(err));
+        ).catch( err => {
+            return
+        }
 
-}
+            );
+        
+        
+    
+        }
+    
+    
+
+
+
 
 }

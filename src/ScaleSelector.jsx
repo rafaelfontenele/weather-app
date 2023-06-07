@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export const ScaleSelector = ( { darkTheme, isCelsius, setIsCelsius } ) => {
-    const currIcon = `url("../public/${isCelsius ? 'c' : 'f'}-${darkTheme ? 'light' : 'dark'}.svg")`
+    const currIcon = `url("${isCelsius ? 'c' : 'f'}-${darkTheme ? 'light' : 'dark'}.svg")`
 
     return ( 
         <div className="scale-selector">

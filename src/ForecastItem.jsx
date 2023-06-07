@@ -8,7 +8,7 @@ export const ForecastItem = ( { data, scale } ) => {
         maxTemp: data.day[`maxtemp_${scale}`],
         avgTemp: data.day[`avgtemp_${scale}`],
         text: data.day.condition.text,
-        iconUrl: `./public/${data.day.condition.icon.split('/').splice(-2).join('/')}`,
+        iconUrl: `${data.day.condition.icon.split('/').splice(-2).join('/')}`,
     }
 
     //  split('/').splice(-2).join('')
@@ -32,9 +32,9 @@ export const ForecastItem = ( { data, scale } ) => {
 
         <div className="temp">
 
-            <div className="min-temp">Min  {info.minTemp} {scaleDisplay}  </div>        
-            <div className="max-temp">Max  {info.maxTemp} {scaleDisplay}</div>
-            <div className="avg-temp">Avg  {info.avgTemp} {scaleDisplay}</div>
+            <div className="label">Min</div> <div className="min-temp">  {info.minTemp} {scaleDisplay}  </div>        
+            <div className="label">Avg</div> <div className="avg-temp"> {info.avgTemp} {scaleDisplay}</div>
+            <div className="label">Max</div> <div className="max-temp"> {info.maxTemp} {scaleDisplay}</div>
 
         </div>
 

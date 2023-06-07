@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Current } from './Current';
 import { Forecast } from './Forecast';
 
@@ -15,12 +14,15 @@ export const Display = ( {data, darkTheme, isCelsius} ) => {
             <div className={`wrong-input-display ${darkClass}`}>Location not found</div>
         )}
 
-        {data && ( 
+        {(data !== undefined && data !== -1) && ( 
+
                 <div className="display">
                 <Current current={data.current} location={data.location} darkClass={darkClass} scale={isCelsius ? 'c' : 'f'} />
                 <Forecast forecastData={data.forecast ? data.forecast : null} darkClass={darkClass} isCelsius={isCelsius} />
                 </div>
-        )}  
+
+            )}
+        
 
 </>
 

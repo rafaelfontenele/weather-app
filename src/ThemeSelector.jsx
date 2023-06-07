@@ -1,6 +1,6 @@
 
 export const ThemeSelector = ( {darkTheme, setDarkTheme} ) => {
-    const iconUrl = `url("../public/${darkTheme ? 'moon-light' : 'sun-dark'}.svg")`
+    const iconUrl = `url("${darkTheme ? 'moon-light' : 'sun-dark'}.svg")`
 
     return (
         <>
