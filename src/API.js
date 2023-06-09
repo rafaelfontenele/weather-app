@@ -7,9 +7,9 @@ export class API  {
     }
     
 
-    SEARCH_URL = (key, input) => `http://api.weatherapi.com/v1/search.json?key=${key}&q=${input}`;
-    CURRENT_URL = (key, input) => `http://api.weatherapi.com/v1/current.json?key=${key}&q=${input}&aqi=no`
-    FORECAST_URL = (key, input) => `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${input}&days=7&aqi=no&alerts=no`
+    SEARCH_URL = (key, input) => `https://api.weatherapi.com/v1/search.json?key=${key}&q=${input}`;
+    CURRENT_URL = (key, input) => `https://api.weatherapi.com/v1/current.json?key=${key}&q=${input}&aqi=no`
+    FORECAST_URL = (key, input) => `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${input}&days=7&aqi=no&alerts=no`
   
    
     getData (searchInput, setData) {
